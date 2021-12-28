@@ -1,6 +1,5 @@
 import './Profile.css';
 import { useState, useEffect } from 'react';
-// eslint-disable-next-line object-curly-newline
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faUsers, faPlay } from '@fortawesome/free-solid-svg-icons';

@@ -32,6 +32,7 @@
       }
     ],
     "linebreak-style": 0,
-    "allowForLoopAfterthoughts": true
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+    "object-curly-newline": ["error", { "ImportDeclaration": "never" }]
   }
 }
