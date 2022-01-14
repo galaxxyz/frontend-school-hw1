@@ -7,11 +7,12 @@ export default function PaginationComponent({
   paginate,
   currentPage,
 }) {
-  const pageNumbers = [];
-
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  const pageNumbers = Array.from(
+    {
+      length: Math.ceil(totalPosts / postsPerPage),
+    },
+    (_, i) => i + 1,
+  );
 
   return (
     <Pagination>
