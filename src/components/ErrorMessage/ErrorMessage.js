@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
+import styles from './ErrorMessage.module.css';
 
 export default function ErrorMessage({ message }) {
-  const style = {
-    color: 'red',
-    textAlign: 'center',
-  };
-  return <p style={style}>{message}</p>;
+  return <p className={styles.content}>{message}</p>;
 }
 ErrorMessage.propTypes = {
   message: PropTypes.string,

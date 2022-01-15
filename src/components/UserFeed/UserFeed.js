@@ -1,4 +1,3 @@
-import './UserFeed.css';
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';

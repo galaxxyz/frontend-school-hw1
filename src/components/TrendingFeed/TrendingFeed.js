@@ -1,10 +1,10 @@
-import './TrendingFeed.css';
 import { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComments, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styles from './TrendingFeed.module.css';
 import abbreviateNumber from '../../functions/abbreviateNumber';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -40,6 +40,7 @@ export default function TrendingFeed() {
           <Row className="justify-content-center my-5">
             <Col sm="auto" xs={12} className="text-center">
               <video
+                className={styles.video}
                 height={post.video.height * 0.4}
                 width={post.video.width * 0.4}
                 controls
@@ -52,28 +53,32 @@ export default function TrendingFeed() {
             </Col>
 
             <Col sm={4} xs={12} className="py-3">
-              <Container className="videoAuthor px-0 pb-3">
+              <Container className="px-0 pb-3">
                 <Link
-                  className="authorLink"
+                  className={styles.authorLink}
                   to={`/tiktuk/${post.author.uniqueId}`}
                 >
                   <Row>
                     <Col xs="auto">
                       <img
-                        className="AvatarXS"
+                        className={styles.AvatarXS}
                         alt=""
                         src={post.author.avatarThumb}
                       />
                     </Col>
                     <Col className="px-0">
-                      <p className="authorName">{post.author.uniqueId}</p>
-                      <p className="authorNickName">{post.author.nickname}</p>
+                      <p className={styles.authorName}>
+                        {post.author.uniqueId}
+                      </p>
+                      <p className={styles.authorNickName}>
+                        {post.author.nickname}
+                      </p>
                     </Col>
                   </Row>
                 </Link>
               </Container>
-              <p className="videoDescription">{post.desc}</p>
-              <Container className="videoStatistic">
+              <p>{post.desc}</p>
+              <Container>
                 <Row>
                   <Col className="text-center">
                     <FontAwesomeIcon icon={faHeart} size="lg" />

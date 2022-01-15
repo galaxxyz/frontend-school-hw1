@@ -1,10 +1,10 @@
-import './Profile.css';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faUsers, faPlay } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import styles from './Profile.module.css';
 import UserFeed from '../UserFeed/UserFeed';
 import abbreviateNumber from '../../functions/abbreviateNumber';
 import Loader from '../Loader/Loader';
@@ -40,16 +40,26 @@ export default function Profile() {
       <ErrorMessage message={errorMessage} />
       <Row className="justify-content-center">
         <Col sm="auto" xs="auto">
-          <Image className="Avatar" src={info.avatarMedium} roundedCircle />
+          <Image
+            className={styles.Avatar}
+            src={info.avatarMedium}
+            roundedCircle
+          />
         </Col>
       </Row>
 
       <Row className="justify-content-center my-3">
         <Col sm="auto" xs="auto">
-          <div className="userName text-center">{info.nickname}</div>
-          <div className="userNickName text-center pb-3">{`@${info.uniqueId}`}</div>
+          <div className={`${styles.userName} text-center`}>
+            {info.nickname}
+          </div>
+          <div className={`${styles.userNickName} text-center pb-3`}>
+            {`@${info.uniqueId}`}
+          </div>
           {info.signature ? (
-            <div className="userSignature py-3 px-4">{info.signature}</div>
+            <div className={`${styles.userSignature} py-3 px-4`}>
+              {info.signature}
+            </div>
           ) : (
             <p />
           )}
@@ -58,7 +68,7 @@ export default function Profile() {
 
       <Row className="justify-content-center my-4">
         <Col sm="auto" xs="auto">
-          <Container className="videoStatistic">
+          <Container>
             <Row>
               <Col xs={4} className="text-center px-4">
                 <FontAwesomeIcon icon={faUsers} size="2x" />
